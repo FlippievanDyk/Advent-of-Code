@@ -219,6 +219,16 @@ namespace AdventCs
 				select integer1 * variable2)
 				.FirstOrDefault();
 		}
+		public static int ExpenseSumThenProduct3(IEnumerable<int> expenseReport)
+		{
+			IEnumerable<int> enumerable = expenseReport.ToList();
+			return (from integer1 in enumerable
+				from variable2 in enumerable   
+				from variable3 in enumerable
+				where variable2 + integer1 + variable3 == 2020
+				select integer1 * variable2 * variable3)
+				.FirstOrDefault();
+		}
 
 	}
 
@@ -227,6 +237,7 @@ namespace AdventCs
 		private static int Main(string[] args)
 		{
 			Console.WriteLine(AdventDayOne.ExpenseSumThenProduct(AdventDayOne.list));
+			Console.WriteLine(AdventDayOne.ExpenseSumThenProduct3(AdventDayOne.list));
 
 			return 0;
 		}
