@@ -14,6 +14,7 @@ namespace AdventCs
 
 			
 			Console.WriteLine($"Advent day 2 pt1 {AdventDay2.CheckPasswordList(AdventDay2.input.ToList())}");
+			Console.WriteLine($"Advent day 2 pt2 {AdventDay2.CheckPasswordListTobboganPlace(AdventDay2.input.ToList())}");
 
 			return 0;
 		}

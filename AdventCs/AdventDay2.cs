@@ -1026,11 +1026,25 @@ namespace AdventCs
 			int c = password.Count(x => x == policy.LimitedCharacter);
 			return Policy.PolicyViolated(c, policy);
 		}
+		private static bool CheckPasswordTobboganPlace(Policy policy, string password)
+		{
+			var charArray =password.ToCharArray();
+
+			bool characterIsInPosition1 = charArray[policy.MinimumAppearances - 1] == policy.LimitedCharacter;
+			bool characterIsInPosition2 = charArray[policy.MaximumAppearances - 1] == policy.LimitedCharacter;
+
+			return characterIsInPosition1 ^ characterIsInPosition2;
+		}
 
 		public static int CheckPasswordList(List<(Policy policy, string Password)> policyPasswordTuples)
 		{
 			return policyPasswordTuples
 				.Count(x => CheckPassword(x.policy, x.Password));
+		}
+
+		public static int CheckPasswordListTobboganPlace(List<(Policy policy, string Password)> policyPasswordTuples)
+		{
+			return policyPasswordTuples.Count(x => CheckPasswordTobboganPlace(x.policy, x.Password));
 		}
 	}
 }
