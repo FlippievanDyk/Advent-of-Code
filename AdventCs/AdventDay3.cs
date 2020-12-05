@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
 
@@ -360,6 +361,28 @@ new[]{true,false,false,true,true,false,false,false,false,false,false,false,false
 				.Select((x,j) => 
 				CheckTreeAtPosition( movement.x*j , x)
 			).Count(x => x);
+		}
+
+		public static Coordinate[] slopes =
+		{
+			new() {x = 1, y = 1},
+			new() {x = 3, y = 1},
+			new() {x = 5, y = 1},
+			new() {x = 7, y = 1},
+			new() {x = 1, y = 2},
+		};
+		
+		public static int CheckTreesPassedMultipleSlopes(bool[][] treesPattern, Coordinate start, List<Coordinate> movement)
+		{
+
+		return movement.Select(slope =>
+				treesPattern
+					.Where((x, i) => i % slope.y == 0)
+					.Select((x, j) =>
+						CheckTreeAtPosition(slope.x * j, x)
+					).Count(x => x)
+			)
+				.Aggregate(1, (x,y) => x * y);
 		}
 	}
 }
