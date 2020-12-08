@@ -36,10 +36,17 @@ namespace AdventCs
 			// Console.WriteLine($"Advent day 4 pt1 {AdventDay4.CheckPassportBatchNoValidation(day4Input)}");
 			// Console.WriteLine($"Advent day 4 pt2 {AdventDay4.CheckPassportBatchWithValidation(day4Input)}");
 
-			List<string> day5Input = AdventDay5.GetPuzzleInput();
+			// List<string> day5Input = AdventDay5.GetPuzzleInput();
+			//
+			// Console.WriteLine($"Advent day 5 pt1 {AdventDay5.GetHighestBoardingPassId(day5Input)}");
+			// Console.WriteLine($"Advent day 5 pt2 {AdventDay5.GetMyBoardingPass(day5Input)}");
+
+
+			List<string> day6Input = AdventDay6.GetPuzzleInput();
 			
-			Console.WriteLine($"Advent day 5 pt1 {AdventDay5.GetHighestBoardingPassId(day5Input)}");
-			Console.WriteLine($"Advent day 5 pt2 {AdventDay5.GetMyBoardingPass(day5Input)}");
+			Console.WriteLine($"Advent day 6 pt1 {AdventDay6.GetSumOfAnswersPerGroup(day6Input)}");
+			// Console.WriteLine($"Advent day 5 pt2 {AdventDay5.GetMyBoardingPass(day5Input)}");
+
 			
 		return 0;
 	}
