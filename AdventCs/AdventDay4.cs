@@ -1,12 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
-using System.Runtime.Intrinsics.X86;
 using System.Text.RegularExpressions;
 
 namespace AdventCs
@@ -29,9 +24,10 @@ namespace AdventCs
 			{
 				rawPuzzleInput.Add(line);
 			}
+			rawPuzzleInput.Add("");
 
 			List<string> puzzleInput = new List<string>();
-			puzzleInput.Add("");
+			
 			string interim = String.Empty;
 			foreach (string s in rawPuzzleInput)
 			{
@@ -42,8 +38,7 @@ namespace AdventCs
 					interim = string.Empty;
 				}
 			}
-
-			
+		
 			var b = puzzleInput
 				.Select(x => x.Replace("\r", " "));
 			
