@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Data;
 using System.Diagnostics;
 using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
+using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 
 namespace AdventCs
@@ -78,7 +80,7 @@ namespace AdventCs
 			int rowNumber = StringBinaryRepresentationToInt(row);
 			int columnNumber = StringBinaryRepresentationToInt(column);
 
-			Console.WriteLine($"{boardingPass},{rowNumber},{columnNumber},{rowNumber * 8 + columnNumber}");
+			// Console.WriteLine($"{boardingPass},{rowNumber},{columnNumber},{rowNumber * 8 + columnNumber}");
 			
 			return TranslateRowColumnToId(rowNumber, columnNumber);
 
@@ -91,6 +93,25 @@ namespace AdventCs
 
 			);
 
+		}
+
+		public static int GetMyBoardingPass(List<string> boardingPass)
+		{
+			List<int> orderedBoardingPass = boardingPass
+				.Select(GetBoardingPassId)
+				.OrderBy(x => x)
+				.ToList();
+
+			int prev = orderedBoardingPass.First();
+			
+			foreach (int next in orderedBoardingPass)
+			{
+				if (next - prev == 2) return next - 1;
+				prev = next;
+			}
+			
+			
+			return 0;
 		}
 
 		

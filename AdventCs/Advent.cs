@@ -39,6 +39,7 @@ namespace AdventCs
 			List<string> day5Input = AdventDay5.GetPuzzleInput();
 			
 			Console.WriteLine($"Advent day 5 pt1 {AdventDay5.GetHighestBoardingPassId(day5Input)}");
+			Console.WriteLine($"Advent day 5 pt2 {AdventDay5.GetMyBoardingPass(day5Input)}");
 			
 		return 0;
 	}
