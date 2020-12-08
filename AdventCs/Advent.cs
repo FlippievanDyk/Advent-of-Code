@@ -30,12 +30,16 @@ namespace AdventCs
 			// 		, AdventDay3.slopes.ToList())
 			// 		}");
 			
-			
-			List<Dictionary<string, string>> day4Input = AdventDay4.GetPuzzleInput();
-			
-			Console.WriteLine($"Advent day 4 pt1 {AdventDay4.CheckPassportBatchNoValidation(day4Input)}");
-			Console.WriteLine($"Advent day 4 pt2 {AdventDay4.CheckPassportBatchWithValidation(day4Input)}");
+			//
+			// List<Dictionary<string, string>> day4Input = AdventDay4.GetPuzzleInput();
+			//
+			// Console.WriteLine($"Advent day 4 pt1 {AdventDay4.CheckPassportBatchNoValidation(day4Input)}");
+			// Console.WriteLine($"Advent day 4 pt2 {AdventDay4.CheckPassportBatchWithValidation(day4Input)}");
 
+			List<string> day5Input = AdventDay5.GetPuzzleInput();
+			
+			Console.WriteLine($"Advent day 5 pt1 {AdventDay5.GetHighestBoardingPassId(day5Input)}");
+			
 		return 0;
 	}
 	}
