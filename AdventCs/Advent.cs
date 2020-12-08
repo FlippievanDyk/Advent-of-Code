@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
 using System.Security.Authentication.ExtendedProtection;
+using System.Text.RegularExpressions;
 
 namespace AdventCs
 {
@@ -27,10 +29,12 @@ namespace AdventCs
 			// 		, new AdventDay3.Coordinate {x = 0, y = 0}
 			// 		, AdventDay3.slopes.ToList())
 			// 		}");
-
-			var day4Input = AdventDay4.GetPuzzleInput();
+			
+			
+			List<Dictionary<string, string>> day4Input = AdventDay4.GetPuzzleInput();
 			
 			Console.WriteLine($"Advent day 4 pt1 {AdventDay4.CheckPassportBatchNoValidation(day4Input)}");
+			Console.WriteLine($"Advent day 4 pt2 {AdventDay4.CheckPassportBatchWithValidation(day4Input)}");
 
 		return 0;
 	}
