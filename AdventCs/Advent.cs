@@ -44,8 +44,8 @@ namespace AdventCs
 
 			List<string> day6Input = AdventDay6.GetPuzzleInput();
 			
-			Console.WriteLine($"Advent day 6 pt1 {AdventDay6.GetSumOfAnswersPerGroup(day6Input)}");
-			// Console.WriteLine($"Advent day 5 pt2 {AdventDay5.GetMyBoardingPass(day5Input)}");
+			// Console.WriteLine($"Advent day 6 pt1 {AdventDay6.GetSumOfAnswersPerGroup(day6Input)}");
+			Console.WriteLine($"Advent day 6 pt2 {AdventDay6.GetSumOfAnswersPerGroupAllYes(day6Input)}");
 
 			
 		return 0;

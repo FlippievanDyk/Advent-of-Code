@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 
 namespace AdventCs
 {
@@ -51,9 +52,26 @@ namespace AdventCs
 					.ToArray()
 					.Length)
 				.Sum();
-				
-			
+
 			return sumOfYesPerGroup;
+		}	public static int GetSumOfAnswersPerGroupAllYes(List<string> groupAnswers)
+		{
+
+			List<List<string>> groupAnswersPerPerson = groupAnswers
+				.Select(x => x
+					.Split(" ")
+					.Where(y => y != "")
+					.ToList())
+				.ToList();
+
+			return (from list in groupAnswersPerPerson
+				let seed = list.First().ToCharArray()
+				select list.Skip(1)
+					.Aggregate(seed, (current, s) => current.Intersect(s)
+						.ToArray())
+				into seed
+				let added = seed.Length
+				select seed.Length).Sum();
 		}
 	}
 }
