@@ -20,7 +20,7 @@ namespace AdventCs
 
 		public record Instruction
 		{
-			public InstructionType instructionType { get; init; }
+			public InstructionType instructionType { get; set; }
 			public int instructionValue { get; init; }
 			public int instructionIndex { get; init; }
 			public bool usedAlready { get; set; }
@@ -79,17 +79,58 @@ namespace AdventCs
 				instruction = instructions[instructionIndex];
 			}
 			
-	        
-	        
-	        
-	        
-
-
 	        return accumulator;
         }
 
+		public static bool SubstituteInstructionAtIndex(Instruction[] instructions, int index)
+		{
+			if (instructions[index].instructionType == InstructionType.Accumulator)
+				return false;
+			instructions[index].instructionType = instructions[index].instructionType == InstructionType.Jump ? InstructionType.NoOperation : InstructionType.Jump;
+			return true;
+		}
+		
 
+		public static int AccumulatorAfterProgramFinishes(List<string> input)
+		{
+			Instruction[] instructions = ParseInstructions(input).ToArray();
+			
+			int maxIndex = instructions.Length - 1;
+			int accumulator = 0;
 
+			for (var index = 0; index < instructions.Length; index++)
+			{
+				var instruction1 = instructions[index];
+				SubstituteInstructionAtIndex(instructions, index);
+				accumulator = 0;
+				var instructionIndex = 0;
+
+				Instruction instruction = instructions[instructionIndex];
+
+				while (instruction.usedAlready == false)
+				{
+					instructions[instructionIndex].usedAlready = true;
+					(instructionIndex, accumulator) = handleInstruction(instruction, accumulator);
+					if (instructionIndex > maxIndex)
+					{
+						return accumulator;
+					}
+
+					instruction = instructions[instructionIndex];
+				}
+
+				SubstituteInstructionAtIndex(instructions, index);
+				index++;
+
+				foreach (var instruction2 in instructions)
+				{
+					instruction2.usedAlready = false;
+				}
+			}
+
+			//end new loop
+			return accumulator;
+		}
 
     }
 }

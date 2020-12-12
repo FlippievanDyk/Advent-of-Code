@@ -50,8 +50,8 @@ namespace AdventCs
 			
 			List<string> day8RawInput = FileToStringList.GetPuzzleInput(AdventDay8.PuzzlePath);
 			
-			Console.WriteLine($"Advent day 6 pt1 {AdventDay8.AccumulatorBeforeInfiniteLoop(day8RawInput)}");
-			// Console.WriteLine($"Advent day 6 pt2 {AdventDay6.GetSumOfAnswersPerGroupAllYes(day6Input)}");
+			Console.WriteLine($"Advent day 8 pt1 {AdventDay8.AccumulatorBeforeInfiniteLoop(day8RawInput)}");
+			Console.WriteLine($"Advent day 8 pt2 {AdventDay8.AccumulatorAfterProgramFinishes(day8RawInput)}");
 
 
 			
