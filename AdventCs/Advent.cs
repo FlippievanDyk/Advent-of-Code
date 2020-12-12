@@ -42,11 +42,19 @@ namespace AdventCs
 			// Console.WriteLine($"Advent day 5 pt2 {AdventDay5.GetMyBoardingPass(day5Input)}");
 
 
-			List<string> day6Input = AdventDay6.GetPuzzleInput();
+			// List<string> day6Input = AdventDay6.GetPuzzleInput();
 			
 			// Console.WriteLine($"Advent day 6 pt1 {AdventDay6.GetSumOfAnswersPerGroup(day6Input)}");
-			Console.WriteLine($"Advent day 6 pt2 {AdventDay6.GetSumOfAnswersPerGroupAllYes(day6Input)}");
+			// Console.WriteLine($"Advent day 6 pt2 {AdventDay6.GetSumOfAnswersPerGroupAllYes(day6Input)}");
 
+			
+			List<string> day8RawInput = FileToStringList.GetPuzzleInput(AdventDay8.PuzzlePath);
+			
+			Console.WriteLine($"Advent day 6 pt1 {AdventDay8.AccumulatorBeforeInfiniteLoop(day8RawInput)}");
+			// Console.WriteLine($"Advent day 6 pt2 {AdventDay6.GetSumOfAnswersPerGroupAllYes(day6Input)}");
+
+
+			
 			
 		return 0;
 	}
