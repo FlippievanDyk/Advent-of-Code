@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  build and tag:
 
     runs-on: ubuntu-latest
 
@@ -25,4 +25,8 @@ jobs:
       run: dotnet test --no-build --verbosity normal
     - name: My Script
       run: bash .github/listAdvent.sh
-      
+    - name: Create Release
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "AdventCs/Advent.cs"
+        token: ${{secrets.GITHUB_TOKEN}}
