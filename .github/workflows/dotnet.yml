@@ -29,4 +29,5 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         artifacts: "AdventCs/Advent.cs"
+        tag: "testTag"
         token: ${{secrets.GITHUB_TOKEN}}
